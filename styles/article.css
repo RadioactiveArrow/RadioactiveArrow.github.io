@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /* margin: 1% 1% 0 1%; */
+    opacity: 1;
+}
+
+#static {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow:initial;
+    opacity: 0.9;
+}
+
+.ctr-article {
+    width: 50%;
+    margin: 5% auto;
+}
+
+.ctr-head {
+    margin: 2% 1.2%;
+}
+
+.txt-topic {
+    font-family: Inter, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2em;
+    padding: 0.5% 0;
+}
+
+.anc-topic {
+    color: rgb(50, 115, 205);
+    text-decoration: none;
+
+}
+
+.anc-topic:hover {
+    text-decoration: underline ;
+    color: rgb(40, 95, 165);
+}
+
+.txt-title {
+    font-family: Inter, 'Helvetica Neue', Helvetica, "Lucida Grande", sans-serif;
+    font-weight: 900;
+    font-size: 3em;
+    padding: 1% 0;
+    padding-bottom: 0;
+}
+
+.txt-desc {
+    font-family: Charter,  Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.4em;
+    
+    color: rgb(92, 92, 92);
+
+    padding: 1% 0;
+    padding-bottom: 0.5%;
+
+    padding-left: 0.25%;
+
+    width: 95%;
+}
+
+.ctr-img {
+    margin: 0 auto;
+}
+
+.img-big {
+    display: block;
+    width: 100%;
+}
+
+.txt-imgdesc {
+    font-family: Charter,  Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #a3a3a3;
+
+    margin: 1.25% 0;
+}
+
+.ctr-info {
+   padding: 2% 0 0 2.5%;
+}
+
+.txt-byline {
+    font-family: Inter, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.txt-date {
+    font-family: Inter, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: #7D7D7D;
+}
+
+.ctr-content {
+    padding: 2.5%;
+}
+
+.txt-content {
+    font-family: Charter,  Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    * {
+        font-size: 0.95em;
+    }
+
+    hr {
+        margin: 3% 0;
+        margin-top: 1%;
+    }
+
+    .ctr-article {
+        width: 95%;
+        margin: 15% auto;
+        padding: 0 2.5%;
+    }
+
+    .txt-title {
+        font-size: 2.5em;
+        padding-bottom: 0;
+    }
+
+    .txt-desc {
+        font-size: 1.2em;
+        margin-bottom: 3%;
+    }
+
+    .ctr-info {
+        padding: 3% 0;
+        padding-top: 0%;
+    }
+
+    .ctr-content {
+        padding: 0;
+    }
+}

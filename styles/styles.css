@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#static {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow:initial;
+}
+
+#bars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow:initial;
+}
+
+#offscreen {
+    position: fixed;
+    top: -1000px;
+    opacity: 0;
+    left: 0;
+    z-index: -3;
+}
+
+body {
+    background-color: rgb(50,50,50);
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    margin: 2.5% 5%;
+}
+
+.nav {
+    position: fixed;
+    right: 5%;
+    display: flex;
+}
+
+.nav>a {
+    font-family: Inter, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+
+.nav>a:not(:last-of-type) {
+    margin-right: 100px;
+}
+
+.underline {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.underline:hover {
+    transition: all 0.3s ease-in;
+}
+
+.underline:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 10;
+    margin-top: 3px;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.underline:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.titlebox {
+    width: 45%;
+    padding-top: 420px;
+    padding-bottom: 200px;
+}
+
+h1 {
+    font-family: 'League Mono', monospace;
+    font-weight: 600;
+    font-size: 125px;
+    font-style: normal;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-left: 5px;
+    font-family: Inter, sans-serif, 'League Mono',  monospace;
+    font-weight: 300;
+    font-size: 35px;
+    font-style: normal;
+}
+
+/*Hide Scrollbar*/
+body::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+body {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}

@@ -1,0 +1,8 @@
+{
+    "name": "scripts",
+    "entry": "static.js",
+    "output": "static.min.js",
+    "includeImports": true,
+    "includeReference": true,
+    "closure": {}
+}
