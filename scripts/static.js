@@ -1,17 +1,17 @@
 //Configuration
-var opacityRange = 5; //Max Potential Opacity (Higher -> Noise is more appearant)
+var opacityRange = 7; //Max Potential Opacity (Higher -> Noise is more appearant)
 var enableHumBars = true; //Show Hum Bars Moving From Bottom to Top
 
 //Canvas Init
-var canvas;
-var canvas2;
-var ctx;
-var ctx2;
+var static_canvas;
+var static_ctx;
+var bars;
+var bars_ctx;
 var data = [];
 var frame = 0;
 
 //Hum Bar Init
-var randomTick = true;
+var randomTick = false;
 var dY;
 var speed = Math.floor(Math.random() * 12 + 10);
 var thickness = Math.floor(Math.random() * 100);
@@ -19,15 +19,17 @@ var split = Math.random() >= 0.6;
 var queue = [];
 
 $(document).ready(function () {
-    canvas = document.getElementById('static');
-    canvas.width = screen.width;
-    canvas.height = screen.height;
-    ctx = canvas.getContext('2d');
+    static_canvas = document.getElementById('static');
+    static_canvas.width = screen.width;
+    static_canvas.height = screen.height;
+    static_ctx = static_canvas.getContext('2d');
 
-    canvas2 = document.getElementById('bars');
-    canvas2.width = screen.width;
-    canvas2.height = screen.height;
-    ctx2 = canvas2.getContext('2d');
+    bars = document.getElementById('bars');
+    bars.width = screen.width;
+    bars.height = screen.height;
+    bars_ctx = bars.getContext('2d');
+    bars_ctx.fillStyle = "rgba(0,0,0,0.05)";
+
 
     dY = window.innerHeight;
     loadData()
@@ -41,7 +43,7 @@ function loadData() {
     window.requestAnimationFrame(showBars);
     data = []
     for (var x = 0; x < 10; x++) {
-        data[x] = ctx.getImageData(0, 0, screen.width, screen.height);
+        data[x] = static_ctx.getImageData(0, 0, static_canvas.width, static_canvas.height);
         for (var i = 0; i < data[x].data.length; i += 4) {
             data[x].data[i] = data[x].data[i + 1] = data[x].data[i + 2] = Math.random() >= 0.5 ? 20 : 255;
             data[x].data[i + 3] = Math.floor(Math.random() * opacityRange) + 5;
@@ -59,7 +61,7 @@ function showStatic() {
         frame = 0
 
     //Displays Noise Frame
-    ctx.putImageData(data[frame], 0, 0);
+    static_ctx.putImageData(data[frame], 0, 0);
 
     //Loops Animation
     loopTimeout = window.setTimeout(() => {
@@ -72,11 +74,10 @@ function showBars() {
     if (randomTick) {
         if (dY > -thickness - 60) {
             //Draws Bars
-            ctx2.clearRect(0, 0, canvas.width, canvas.height);
-            ctx2.fillStyle = "rgba(0,0,0,0.05)";
-            ctx2.fillRect(0, dY, canvas.width, thickness);
+            bars_ctx.clearRect(0, 0, bars.width, bars.height);
+            bars_ctx.fillRect(0, dY, bars.width, thickness);
             if (split) //Splits Bar
-                ctx2.fillRect(0, dY + thickness + 20, canvas.width, 10);
+                bars_ctx.fillRect(0, dY + thickness + 20, bars.width, 10);
             dY -= speed;
         } else { //Resets bar
             dY = window.innerHeight;

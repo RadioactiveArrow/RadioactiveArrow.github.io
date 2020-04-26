@@ -122,6 +122,11 @@ h2 {
     width: 45%; 
 }
 
+.titlebox > h1 {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-weight: 1000;
+}
+
 .wrp-title {
     height: 100vh;
 }
