@@ -1,6 +1,6 @@
 $(window).on('load', function () {
   $(this).scrollTop(0);
-  $('body').css('background-color', randRGBString())
+  // $('body').css('background-color', randRGBString())
 });
 
 function randRGBString() {

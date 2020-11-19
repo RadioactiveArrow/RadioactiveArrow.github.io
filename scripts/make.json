@@ -1,8 +1,0 @@
-{
-    "name": "scripts",
-    "entry": "page.js",
-    "output": "page.min.js",
-    "includeImports": true,
-    "includeReference": true,
-    "closure": {}
-}

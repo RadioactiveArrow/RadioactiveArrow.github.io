@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +12,10 @@ html {
 }
 
 body {
-    background-color: rgb(50, 50, 50);
+    /* filter: invert(1); */
+    background: radial-gradient(circle at top right, #199b9a, #9198e5);
+    background-attachment: fixed;
+    /* background-color: #05041a; */
     color: #ffffff;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -23,22 +29,23 @@ body {
 }
 
 /*Hide Scrollbar*/
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
     width: 0 !important;
     display: none;
-}
+} */
 
 h1 {
-    font-family: 'League Mono', monospace;
-    font-weight: 600;
-    font-size: 125px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 300;
+    font-size: 2em;
     font-style: normal;
+    text-align: center;
 }
 
 h2 {
     margin-top: 20px;
     margin-left: 5px;
-    font-family: Inter, sans-serif, 'League Mono', monospace;
+    /* font-family: Inter, sans-serif, 'League Mono', monospace; */
     font-weight: 300;
     font-size: 35px;
     font-style: normal;
@@ -50,6 +57,7 @@ h2 {
     left: 0;
     z-index: -1;
     overflow: initial;
+    /* opacity: 0.9    ; */
 }
 
 #bars {
@@ -60,7 +68,7 @@ h2 {
     overflow: initial;
 }
 
-.nav {
+/* .nav {
     position: fixed;
     right: 5%;
     display: flex;
@@ -129,4 +137,4 @@ h2 {
 
 .wrp-title {
     height: 100vh;
-}
+} */
