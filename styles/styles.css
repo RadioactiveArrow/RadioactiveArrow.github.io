@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('../type/Basier-Square-medium-webfont/stylesheet.css');
+@import url('../type/Basier-Square-regular-webfont/stylesheet.css');
 
 
 * {
@@ -13,9 +15,9 @@ html {
 
 body {
     /* filter: invert(1); */
-    background: radial-gradient(circle at top right, #199b9a, #9198e5);
+    /* background-color: rgb(17, 17, 17); */
+    background: radial-gradient(circle at top left, #161347, #111111);
     background-attachment: fixed;
-    /* background-color: #05041a; */
     color: #ffffff;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -24,8 +26,6 @@ body {
 
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
-
-    margin: 2.5% 5%;
 }
 
 /*Hide Scrollbar*/
@@ -34,52 +34,50 @@ body {
     display: none;
 } */
 
+
 h1 {
-    font-family: 'Fira Code', monospace;
+    font-family: 'basier_squaremedium', Inter, Helvetica, sans-serif;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 3.25em;
     font-style: normal;
     text-align: center;
 }
 
 h2 {
-    margin-top: 20px;
-    margin-left: 5px;
-    /* font-family: Inter, sans-serif, 'League Mono', monospace; */
+    margin-top: 5px;
+    /* margin-left: 10px; */
+    font-family: 'Fira Code', monospace;
     font-weight: 300;
-    font-size: 35px;
+    font-size: 1.5em;
+    text-align: center;
     font-style: normal;
 }
 
-#static {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    overflow: initial;
-    /* opacity: 0.9    ; */
+.nav-img {
+    /* display: block; */
+    width: 2.75em;
+    margin-right: 7em;
+    float: left;
+    /* margin: 24px auto; */
+    /* width: 100%; */
 }
 
-#bars {
+.nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    overflow: initial;
-}
-
-/* .nav {
-    position: fixed;
-    right: 5%;
+    right: 5em;
+    left: 5em;
+    top: 2em;
     display: flex;
+    align-items: center;
 }
 
 .nav>a {
-    font-family: Inter, Helvetica, sans-serif;
-    font-size: 2em;
+    font-family: 'basier_squareregular', Inter, Helvetica, sans-serif;
+    font-size: 1.75em;
     font-weight: 400;
     text-decoration: none;
     color: white;
+    float: right;
 }
 
 .nav>a:not(:last-of-type) {
@@ -120,15 +118,89 @@ h2 {
     top: 0;
 
     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    -webkit-transform: translateY(-50%);
-       -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-         -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-
-    width: 50%; 
+    /* width: 100vw;  */
 }
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: initial;
+    opacity: 1;
+    /* rotate: 90 */
+}
+
+#static {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: initial;
+    width: 200%;
+    height: 200%;
+    -ms-interpolation-mode: nearest-neighbor;
+  /* Firefox */
+  image-rendering: crisp-edges;
+  /* Chromium + Safari */
+  image-rendering: pixelated;
+    opacity: 0.0      ;
+}
+
+#bars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: initial;
+}
+
+
+
+/* .nav {
+    position: fixed;
+    right: 5%;
+    display: flex;
+}
+
+
+
+.nav>a:not(:last-of-type) {
+    margin-right: 100px;
+}
+
+.underline {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.underline:hover {
+    transition: all 0.3s ease-in;
+}
+
+.underline:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 10;
+    margin-top: 3px;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.underline:hover:after {
+    width: 100%;
+    left: 0;
+}
+
 
 .titlebox > h1 {
     font-family: Kollektif, Arial, Helvetica, sans-serif;
