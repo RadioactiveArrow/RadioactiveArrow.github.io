@@ -172,7 +172,7 @@ img {
     display: block;
     /* margin-top: 12px; */
     padding: 12px 0;
-    color: blue;
+    color: #1d1d56;
     font-family: 'basier_circle_monoregular', "Aktiv-Grotesk", monospace;
     font-weight: 100;
     font-size: 14px;
@@ -252,17 +252,16 @@ br {
 .bottom {
     display: block;
     position: absolute;
-    bottom: 16px;
+    bottom: 0px;
     width: 100%;
     background-color: white;
-    /* padding: 20px; */
+    padding: 16px 0;
 }
 
 .right {
     right: 16px;
 }
 
-.bottom-right
 
 .inline {
     display: inline-block;
@@ -310,7 +309,7 @@ br {
         display: flex;
         /* flex-wrap: wrap; */
         /* margin: 0 0 0 20px; */
-        margin: 40px auto;
+        margin: 80px 80px;
         /* flex-direction: column; */
         /* width: 800px; */
     }
@@ -318,6 +317,7 @@ br {
     .title-container {
         float: left;
         /* order: -2; */
+        margin-right: 20px;
     }
     
     .img-container {
@@ -335,5 +335,29 @@ br {
     .img-container > .desc {
         display: none;
     }
-      
+
+    .subtitle, .desc {
+        font-size: 18px;
+    }
+
+    .nav {
+        font-size: 18px;
+    }
+
+    .code {
+        font-size: 18px;
+    }
+
+    .link {
+        font-size: 18px;
+    }
+ 
+    
+    .desc {
+        /* text-align: start; */
+    }
+
+    .title-container > .subtitle {
+        width: 300px;
+    }
 }
