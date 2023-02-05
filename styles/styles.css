@@ -254,7 +254,7 @@ br {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background-color: white;
+    /* background-color: white; */
     padding: 16px 0;
 }
 
@@ -314,6 +314,11 @@ br {
         /* width: 800px; */
     }
     
+    .bottom {
+        position: relative;
+        padding-bottom: 0;
+    }
+
     .title-container {
         float: left;
         /* order: -2; */

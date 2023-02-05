@@ -2,7 +2,6 @@
 active = false;
 $(document).ready(async function() {
     $("#expand").click(async function(e){
-        active =true
         e.preventDefault()
         $(".p1").fadeOut(400, "swing")
         $(".name-container").delay(370).animate({
@@ -34,6 +33,7 @@ $(document).ready(async function() {
                             duration: 500,
                             complete: () => {
                                 $(".p2").fadeIn() 
+                                active =true
                                 $(".name-container").toggleClass("visible-border",false)
                                 // $("body").css({overflow:"visible"})
                             }
