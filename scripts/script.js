@@ -10,7 +10,7 @@ $(document).ready(async function() {
           { duration: 800,
             complete: async function() {
                 await $(".p1-2").typeWrite({
-                    speed: 60,
+                    speed: 30,
                     repeat: false,
                     cursor: true,
                 }, $(".p1-2").text());//fadeIn(700, "swing")
@@ -42,7 +42,35 @@ $(document).ready(async function() {
             }
           }
         );
-        
+      });
+
+      $("#contact").click(async function(e){
+        e.preventDefault()
+        $(".p2").fadeOut(400, "swing")
+        $(".p1-2").fadeOut(400, "swing")
+        $(".p1-3").fadeOut(400, "swing")
+        $(".name-container").delay(370).animate({
+            height: "0px",
+            padding: "5px"
+          }, 
+          { duration: 800,
+            complete: async function() {
+                await $(".p1-2").typeWrite({
+                    speed: 60,
+                    repeat: false,
+                    cursor: true,
+                }, "interested? hire me!! ");//fadeIn(700, "swing")
+                await setTimeout(async () => {  
+                    $("body").css({overflow: "hidden"})
+                    $(".p1-3").typeWrite({
+                    speed: 60,
+                    repeat: false,
+                    cursor: true,
+                    }, "or, learn more");
+                }, 500);
+                
+            }
+        });
       });
 });
 

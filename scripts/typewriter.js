@@ -23,12 +23,12 @@
                   t(this).append("<span id='cursor'>|</span>"),
                   t('#cursor').css('animation', 'blink 1s infinite'),
                   (n += letters[s + 1]),
-                  await e(letters[s] == ' ' && letters[s-1] == ',' ? i + 400 : i))
+                  await e(letters[s] == ' ' && (letters[s-1] == ',' || letters[s-1] == '?') ? i + 400 : i))
                 : (t(this).text(n),
                   t('#cursor').remove(),
                   t(this).append("<span id='cursor'>|</span>"),
                   (n += letters[s]),
-                  await e(letters[s] == ',' ? i + 100 : i))
+                  await e((letters[s] == ',' || letters[s] == '?') ? i + 100 : i))
               : void 0 !== letters[s + 1]
               ? (t(this).text(n), (n += letters[s + 1]), await e(i))
               : (t(this).text(n), (n += letters[s]), await e(i))
