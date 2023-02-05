@@ -25,7 +25,7 @@
 
 body {
     background: radial-gradient(circle at top left, var(--c-display), #111111);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: var(--c-display);
     /* font-weight: bold; */
 }
@@ -296,8 +296,8 @@ br {
 
 @media (min-width: 1000px) {
     .name-container {
-        overflow-x: none;
-        overflow-y: auto;
+        /* overflow-x: none; */
+        /* overflow-y: auto; */
     }
 
     .projects {
