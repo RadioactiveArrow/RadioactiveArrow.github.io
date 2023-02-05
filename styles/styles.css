@@ -25,7 +25,7 @@
 
 body {
     background: radial-gradient(circle at top left, var(--c-display), #111111);
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: var(--c-display);
     /* font-weight: bold; */
 }
