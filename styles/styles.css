@@ -270,7 +270,7 @@ br {
 
 .name-container {
     overflow-x: auto;
-    overflow-y: none;
+    /* overflow-y: ; */
 }
 
 .name-container::-webkit-scrollbar {
