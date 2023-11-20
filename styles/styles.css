@@ -377,8 +377,8 @@ li::before {
 
 }
 
-foreignObject > div {
-    /* position: fixed; */
+#projectsObj-fO > div {
+    position: fixed;
 }
 
 @media screen and (max-width: 600px) {
