@@ -345,7 +345,7 @@ const initializeScroll = () => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely opened for an input field.");
             const currentPos = map.getAttribute('viewBox').split(" ");
-            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-10} ${currentPos[2]} ${currentPos[3]}`);
+            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 
@@ -356,7 +356,7 @@ const initializeScroll = () => {
             // updateViewBox();
             // move viewport back to original position
             const currentPos = map.getAttribute('viewBox').split(" ");
-            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-10} ${currentPos[2]} ${currentPos[3]}`);
+            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 }
