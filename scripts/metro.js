@@ -344,7 +344,6 @@ const initializeScroll = () => {
     document.addEventListener("focusin", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely opened for an input field.");
-            alert("hello")
             moveScreenToStation(stations["contact"]);
             updateViewBox();
         }
@@ -353,9 +352,11 @@ const initializeScroll = () => {
     document.addEventListener("focusout", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely closed for an input field.");
-            alert("goodbye")
             moveScreenToStation(stations["contact"]);
             updateViewBox();
+            // move viewport back to original position
+            const currentY = map.getAttribute('viewBox').split(" ")[1];
+            map.setAttribute('viewBox', `0 ${currentY-10} 390 669`);
         }
     });
 }
