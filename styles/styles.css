@@ -376,7 +376,7 @@ li::before {
 
 }
 
-.foreignObject > div {
+foreignObject > div {
     position: fixed;
 }
 
