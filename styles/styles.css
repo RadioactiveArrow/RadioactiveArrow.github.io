@@ -376,6 +376,10 @@ li::before {
 
 }
 
+.foreignObject > div {
+    position: fixed;
+}
+
 @media screen and (max-width: 600px) {
 
     .about {

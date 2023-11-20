@@ -43,7 +43,6 @@ let maxScroll = 0;
     and maintain correct sizing
 */
 function updateViewBox() {
-    alert("updating viewbox")
     // get the current state's SVG element
     let svgElement = document.getElementById(`${currentState}Obj`);
     if (!svgElement) {
@@ -78,11 +77,11 @@ function updateViewBox() {
         return;
     }
 
-    alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
+    // alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
-    // map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
-    map.setAttribute('viewBox', `439 -117 390 669`);
+    map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+    // map.setAttribute('viewBox', `439 -117 390 669`);
 
     // map.setAttribute('viewBox', `-45 -184.5 390 669`);
 }
@@ -138,7 +137,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
     let start_time = null;
 
     function animate(time) {
-        // updateViewBox();
+        updateViewBox();
         if (!start_time) {
             start_time = time;
         }
@@ -334,14 +333,13 @@ const initializeScroll = () => {
 }
 
 const loaded = () => {
-    alert("loaded at least :(")
     // initialize map
     map = document.getElementById('map');
 
 
     // initialize and periodically refresh viewBox
     updateViewBox();
-    // setInterval(updateViewBox, 2000);
+    setInterval(updateViewBox, 2000);
 
     // show map after loading viewBox
     setTimeout(() => {
