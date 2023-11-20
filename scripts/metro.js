@@ -117,7 +117,7 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     let destViewBoxX = destCenterX - svgWidth / 2;
     let destViewBoxY = destCenterY - svgHeight / 2;
 
-    alert("bboxX" + bboxX + " bboxY" + bboxY +  " destViewBoxX " + destViewBoxX + " destViewBoxY " + destViewBoxY + " svgWidth " + svgWidth + " svgHeight " + svgHeight )
+    // alert("bboxX" + bboxX + " bboxY" + bboxY +  " destViewBoxX " + destViewBoxX + " destViewBoxY " + destViewBoxY + " svgWidth " + svgWidth + " svgHeight " + svgHeight )
 
     // interpolate between start and destination values
     let x = start[0] + progress * (destViewBoxX - start[0]);
@@ -179,7 +179,7 @@ const moveScreenToStation = (destination) => {
     currentState = Object.keys(stations).find((key) => stations[key] === destination);
     currentViewBox = map.getAttribute('viewBox').split(" ");
     currentViewBox = currentViewBox.map((x) => parseInt(x));
-    alert("currentViewBox " + currentViewBox + " currentState " + currentState + " destination " + destination)
+    // alert("currentViewBox " + currentViewBox + " currentState " + currentState + " destination " + destination)
     _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME); // 3 seconds
 }
 
