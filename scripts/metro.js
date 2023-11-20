@@ -31,6 +31,7 @@ const TRAIN_ANGLE_LOOKAHEAD_COUNT = 5;  // # of look ahead points for smoothing
 
 let currentState = "home";
 let allowScroll = false;
+let isAnimating = false;
 let trainStop = true; // enables early stop on blue line
 let scrollPos = 0;
 let minScroll = 0;
@@ -44,6 +45,9 @@ let maxScroll = 0;
     and maintain correct sizing
 */
 function updateViewBox() {
+    if (isAnimating) {
+        return;
+    }
     // get the current state's SVG element
     let svgElement = document.getElementById(`${currentState}Obj`);
     if (!svgElement) {
@@ -163,6 +167,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
         } else {
             minScroll = Number.parseFloat(currentViewBox.split(" ")[1]);
             maxScroll = minScroll + Number.parseFloat(currentViewBox.split(" ")[3]);
+            isAnimating = false;
         }
     }
 
@@ -177,6 +182,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
     destination - the name of the destination station
 */
 const moveScreenToStation = (destination) => {
+    isAnimating = true;
     currentState = Object.keys(stations).find((key) => stations[key] === destination);
     currentViewBox = map.getAttribute('viewBox').split(" ");
     currentViewBox = currentViewBox.map((x) => parseInt(x));

@@ -371,7 +371,7 @@ li::before {
 
 #projectsObj-fO > div {
     position: fixed;
-    z-index: -10;
+    /* z-index: -10; */
 }
 
 @media screen and (max-width: 600px) {
