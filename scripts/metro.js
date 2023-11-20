@@ -22,7 +22,7 @@ let map;
 const STATION_PAN_TIME = 3000; // time to pan between stations (milliseconds)
 const BLUE_STATION_POS = 2865.1; // position of blue station on blue line (pixels)
 
-const TRAIN_SPEED = 14; // speed of the train in pixels per frame
+const TRAIN_SPEED = 12; // speed of the train in pixels per frame
 const TRAIN_CART_OFFSET = 40; // offset between train and each cart
 const TRAIN_DIST_CUTOFF = 1.1; // distance multiplier to end the train animation
 const TRAIN_ANGLE_LOOKAHEAD_COUNT = 5;  // # of look ahead points for smoothing
@@ -180,8 +180,10 @@ const moveScreenToStation = (destination) => {
     currentState = Object.keys(stations).find((key) => stations[key] === destination);
     currentViewBox = map.getAttribute('viewBox').split(" ");
     currentViewBox = currentViewBox.map((x) => parseInt(x));
-    // alert("currentViewBox " + currentViewBox + " currentState " + currentState + " destination " + destination)
-    _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME); // 3 seconds
+    const timeOut = (destination == "homeObj") ? 0 : 500;
+    setTimeout(() => {
+        _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME); // 3 seconds
+    }, timeOut);
 }
 
 
@@ -388,11 +390,11 @@ const loaded = () => {
     // initialize and periodically refresh viewBox
     updateViewBox();
     // setInterval(updateViewBox, 2000);
+    // moveScreenToStation(stations["home"]);
 
     // show map after loading viewBox
     setTimeout(() => {
         map.style.visibility = 'visible';
-        moveScreenToStation(stations["home"]);
 
     }, 150);
 
