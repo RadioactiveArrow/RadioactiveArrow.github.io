@@ -68,6 +68,8 @@ function updateViewBox() {
     // calculate new viewBox values to center the element
     let viewBoxX = centerX - svgWidth / 2;
     let viewBoxY = centerY - svgHeight / 2;
+    
+    alert("svgWidth " + svgWidth + " svgHeight " + svgHeight + " viewBoxX " + viewBoxX + " viewBoxY " + viewBoxY + " centerX " + centerX + " centerY " + centerY + " bbox.x " + bbox.x + " bbox.y " + bbox.y + " bbox.width " + bbox.width + " bbox.height " + bbox.height)
 
     // if on projects page, preserve scroll position on resize / update
     allowScroll = (currentState == "projects")
@@ -77,12 +79,11 @@ function updateViewBox() {
         return;
     }
 
-    // alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
+    alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
     map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
     // map.setAttribute('viewBox', `439 -117 390 669`);
-
     // map.setAttribute('viewBox', `-45 -184.5 390 669`);
 }
 
