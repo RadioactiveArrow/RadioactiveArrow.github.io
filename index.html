@@ -1,108 +1,171 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Basier-Mono-Circle-Webfont/stylesheet.css">
-    <link rel="stylesheet" href="https://use.typekit.net/vse3qqx.css">
-
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/typewriter.js"></script>
-    <script src="scripts/script.js"></script>
-    <title>savvy!!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="scripts/metro.js"></script>
+    <title>savvy chez.</title>
 </head>
-<body>
-    <div class="nav-bar">
-        <!-- <a class="subtitle nav">~home</a> -->
-        <!-- <a class="subtitle nav">/proj</a> -->
-        <!-- <a class="subtitle nav">/about</a>
-        <a class="subtitle nav">/connect</a> -->
-    </div>
-    <main>
-        <p class="p1-2 subtitle">ok, so that's a <em>bit</em> of a stretch.</p>
-        <p class="p1-3 subtitle">but here are some of my projects</p>
-            <div class="visible-border name-container">
-                <div class="p1">
-                    <h1 style="font-weight: 500; font-size: 2em;" class="name p1">savvy<br/>chezhian</h1>
-                    <p class="subtitle p1">ever been on a website?<br/>yeah, that was me. i made that.</p>
-                    <a class="link p1" id="expand" href="">don't believe me?</a>
-                </div>
-                <div class="p2">
-                    <div class="projects">
-                        <div class="project">
-                            <div class="title-container">
-                                <h1 class="name">Meridian</h1>
-                                <p class="subtitle ">sea surface analytics, at scale</p>
-                                <p class="desc">A platform for analyzing trends in and visualizing large sets of oceanic climate data.&nbsp;&nbsp;</p> 
-                            </div>
-                            <div class="img-container">
-                                <img src="assets/meridian.png" alt="" srcset="">
-                                <div class="link-container">
-                                    <a class="link b" target="_blank" href="https://viewmeridian.com"><img src="assets/globe.svg" alt=""><p>visit</p></a>
-                                    <a class="link b" target="_blank" href="https://github.com/savvychez/meridian_client"><img src="assets/logo.svg" alt=""><p>github</p></a>
-                                </div>
-                                <p class="code"><strong>tech:</strong> reactjs, python, express</p>
-                                <p class="desc">A platform for analyzing trends in and visualizing large sets of oceanic climate data.&nbsp;&nbsp;</p> 
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="title-container">
-                                <h1 class="name">Tributary</h1>
-                                <p class="subtitle ">a different perspective on the world's news</p>
-                                <p class="desc">Witness global events as they unfold on the news aggregator built for a changing world.</p> 
-                            </div>
-                            <div class="img-container">
-                                <img src="assets/tributary.png" alt="" srcset="">
-                                <div class="link-container">
-                                    <a class="link b" target="_blank" href="https://tributary.svvc.dev/"><img src="assets/globe.svg" alt=""><p>visit</p></a>
-                                    <a class="link b" target="_blank" href="https://github.com/savvychez/tributary-web"><img src="assets/logo.svg" alt=""><p>github</p></a>
-                                </div>
-                                <p class="code"><strong>tech:</strong> reactjs, python, NLP</p>
-                                <p class="desc">Witness global events as they unfold on the news aggregator built for a changing world.</p> 
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="title-container">
-                                <h1 class="name">RecipeBook</h1>
-                                <p class="subtitle ">a new way to pass down recipes</p>
-                                <p class="desc">Built with a user-friendly UI and an infinitely scalable data model, RecipeBook is perfect for home cooks and michelin star chefs alike. </p> 
-                            </div>
-                            <div class="img-container">
-                                <img src="assets/RecipeBook.png" alt="" srcset="">
-                                <div class="link-container">
-                                    <a class="link b" target="_blank" href="https://github.com/savvychez/recipe-book"><img src="assets/logo.svg" alt=""><p>github</p></a>
-                                </div>
-                                <p class="code"><strong>tech:</strong> reactjs, express, mongo-db</p>
-                                <p class="desc">Built with a user-friendly UI and an infinitely scalable data model, RecipeBook is perfect for home cooks and michelin star chefs alike. </p> 
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="title-container">
-                                <h1 class="name">CSPrep</h1>
-                                <p class="subtitle ">an education platform built for code</p>
-                                <p class="desc">A test review platform with complete Java language support and a comprehensive tutoring system.</p> 
-                            </div>
-                            <div class="img-container">
-                                <img src="assets/csprep2.png" alt="" srcset="">
-                                <div class="link-container">
-                                    <a class="link b" target="_blank" href="https://github.com/savvychez/csprep"><img src="assets/logo.svg" alt=""><p>github</p></a>
-                                </div>
-                                <p class="code"><strong>tech:</strong> php, mysql, nginx</p>
-                                <p class="desc">A test review platform with complete Java language support and a comprehensive tutoring system.</p> 
-                                </div>
-                        </div>
-                        <a class="link bottom" id="contact" href="">sold? get in touch.</a>
+<body onLoad='loaded()'>
+    <svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 65 1000 00 " preserveAspectRatio="xMinYMin slice">
+        <path class="svg_greenline about" id="greenLine" d="M -310.5 164 L 729 164 L 1325 759" stroke="#65AE75" stroke-width="10" fill="none"/>
+        <g id="aboutObja">
+            <circle class="station stat_about" id="statAbout" cx="1325" cy="759" r="12" fill="#FAFBEC" stroke="#65AE75" stroke-width="6"/>
+            <foreignObject id="aboutObj" x="1336" y="740" width="600" height="420">
+                <div class="content about">
+                    <h1>About Me</h1>
+                    <p>Hey! My name's Savvy and I'm a computer science major at the University of Texas at Austin.
+                        I'm really interested in full stack development and robotics.
+                        You can check out some of my work at my site or on my devpost! 
+                    </p>
+                    <div class="abt-ctr">
+                        <div class="button green">
+                            <a href="">check out my resume!</a>
+                        </div>  
+                        <div id="home_green" class="button to_home">
+                            <a href="">&lt;- return home</a>
+                        </div>     
                     </div>
-                    <!-- <a class="link bottom right" id="expand" href="mailto:schezhian@utexas.edu">...or learn more</a> -->
+                    
                 </div>
+            </foreignObject>
+        </g>
+        
+
+
+        <path class="svg_redline project" id="redLine" d="M 793 -207 L 493 93 L 493 3100" stroke="#EE8052" stroke-width="10" fill="none"/>
+        <circle class="station stat_projects" id="statProject" cx="493" cy="3100" r="12" fill="#FAFBEC" stroke="#EE8052" stroke-width="6"/>
+        <line id="projectsObj" class="station stat_project" x1="450" y1="1600" x2="875" y2="1800" fill="none" stroke="none" stroke-width="6"/>
+        <foreignObject id="projectsObj-fO" x="475" y="1400" width="400" height="1700">
+            <div class="content projects">
+                <div class="proj-button-ctr">
+                    <div id="home_red" class="button to_home">
+                        <a href="">&lt;- return home</a>
+                    </div>  
+                </div>
+                
+                <ul class="projects-list">
+                    <div class="project-item">
+                        <div class="title-container">
+                            <li class="name"><h1>Meridian</h1></li>
+                            <p class="subtitle ">sea surface analytics, at scale</p>
+                        </div>
+                        <div class="img-container">
+                            <img src="assets/meridian.png" alt="" srcset="">
+                            <div class="link-container">
+                                <a class="link b" target="_blank" href="https://viewmeridian.com"><img src="assets/globe.svg" alt=""><p>visit</p></a>
+                                <a class="link b" target="_blank" href="https://github.com/savvychez/meridian_client"><img src="assets/logo.svg" alt=""><p>github</p></a>
+                            </div>
+                            <p class="code"><strong>tech:</strong> reactjs, python, express</p>
+                        </div>
+                        <p class="desc">A platform for analyzing trends in and visualizing large sets of oceanic climate data.&nbsp;&nbsp;</p> 
+                    </div>
+                    <div class="project">
+                        <div class="title-container">
+                            <li><h1 class="name">Tributary</h1></li>
+                            <p class="subtitle ">a different perspective on the world's news</p>
+                        </div>
+                        <div class="img-container">
+                            <img src="assets/tributary.png" alt="" srcset="">
+                            <div class="link-container">
+                                <a class="link b" target="_blank" href="https://tributary.svvc.dev/"><img src="assets/globe.svg" alt=""><p>visit</p></a>
+                                <a class="link b" target="_blank" href="https://github.com/savvychez/tributary-web"><img src="assets/logo.svg" alt=""><p>github</p></a>
+                            </div>
+                            <p class="code"><strong>tech:</strong> reactjs, python, NLP</p>
+                        </div>
+                        <p class="desc">Witness global events as they unfold on the news aggregator built for a changing world.</p> 
+                    </div>
+                    <div class="project">
+                        <div class="title-container">
+                            <li><h1 class="name">RecipeBook</h1></li>
+                            <p class="subtitle ">a new way to pass down recipes</p>
+                        </div>
+                        <div class="img-container">
+                            <img src="assets/RecipeBook.png" alt="" srcset="">
+                            <div class="link-container">
+                                <a class="link b" target="_blank" href="https://github.com/savvychez/recipe-book"><img src="assets/logo.svg" alt=""><p>github</p></a>
+                            </div>
+                            <p class="code"><strong>tech:</strong> reactjs, express, mongo-db</p>
+                        </div>
+                        <p class="desc">Built with a user-friendly UI and an infinitely scalable data model, RecipeBook is perfect for home cooks and michelin star chefs alike. </p> 
+                    </div>
+                    <div class="project">
+                        <div class="title-container">
+                            <li><h1 class="name">CSPrep</h1></li>
+                            <p class="subtitle ">an education platform built for code</p>
+                            <!-- <p class="desc">A test review platform with complete Java language support and a comprehensive tutoring system.</p>  -->
+                        </div>
+                        <div class="img-container">
+                            <img src="assets/csprep2.png" alt="" srcset="">
+                            <div class="link-container">
+                                <a class="link b" target="_blank" href="https://github.com/savvychez/csprep"><img src="assets/logo.svg" alt=""><p>github</p></a>
+                            </div>
+                            <p class="code"><strong>tech:</strong> php, mysql, nginx</p>
+                        </div>
+                        <p class="desc">A test review platform with complete Java language support and a comprehensive tutoring system.</p> 
+                    </div>
+                </ul>
             </div>
-    </main>
+        </foreignObject>
+
+        <path class="svg_blueline contact" id="blueLine" d="M -200 495 L 797 495 L 897 390 L 2790 395" stroke="#59B3E5" stroke-width="10" fill="none"/>
+        <circle class="station stat_contact" id="statContact" cx="2790" cy="395" r="12" fill="#FAFBEC" stroke="#59B3E5" stroke-width="6"/>
+
+        <foreignObject id="contactObj" x="2440" y="400" width="400" height="500">
+            <div class="content contact">
+                <h1>Contact Me</h1>
+                <input type="email" name="email" placeholder="your email address"  id="">
+                <textarea name="form-data" id="" cols="30" rows="10" placeholder="your message here :)"></textarea>
+                <div class="contact-ctr">
+                    <div id="home_blue" class="button to_home">
+                        <a href="">&lt;- return home</a>
+                    </div>
+                    <div id="send_form" class="button blue ">
+                        <a href="">send -></a>
+                    </div>    
+                </div>
+                
+            </div>
+        </foreignObject>
+    
+       
+        
+
+        <foreignObject id="homeObj" x="484" y="155" width="300" height="300">
+            <div class="content body" mlns="http://www.w3.org/1999/xhtml">
+              <div>
+                <div class="name_panel">
+                    <h1>Savvy<br/>Chezhian</h1>
+                </div>
+              </div>
+            </div>
+        </foreignObject>
+
+        <rect class="train_component" id="train" x="-10" y="-2" visibility="hidden" width="40" height="22" fill="#FAF9EA" stroke="#59B3E5" stroke-width="5"/>
+        <rect class="train_component" id="cart1" x="-20" y="-2" visibility="hidden" width="40" height="22" fill="#FAF9EA" stroke="#59B3E5" stroke-width="5"/>
+        <rect class="train_component" id="cart2" x="-30" y="-2" visibility="hidden" width="40" height="22" fill="#FAF9EA" stroke="#59B3E5" stroke-width="5"/>
+    
+
+        <!-- Menu Nav Buttons -->
+        <circle class="button top" cx="493" cy="320" r="10" fill="#65AE75" stroke="#FAF9EA" stroke-width="4"/>
+        <foreignObject x="486" y="305" width="200" height="50">
+            <a id="to_about" href="#" class="link_button" style="color: #65AE75;">About</a>
+        </foreignObject>
+        
+        <circle class="button mid" cx="493" cy="370" r="10" fill="#EE8052" stroke="#FAF9EA" stroke-width="4"/>
+        <foreignObject x="486" y="355" width="200" height="50">
+            <a id="to_projects" href="#"  class="link_button" style="color: #EE8052;">Projects</a>
+        </foreignObject>
+
+        <circle class="button bottom" cx="493" cy="420" r="10" fill="#59B3E5" stroke="#FAF9EA" stroke-width="4"/>
+        <foreignObject x="486" y="405" width="200" height="50">
+            <a id="to_contact" href="#" class="link_button" style="color: #59B3E5;">Contact</a>
+        </foreignObject>
+    </svg>    
 </body>
 </html>
