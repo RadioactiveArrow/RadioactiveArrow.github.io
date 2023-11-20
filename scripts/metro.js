@@ -81,7 +81,10 @@ function updateViewBox() {
     alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
-    map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+    // map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+    map.setAttribute('viewBox', `439 -117 390 669`);
+
+    // map.setAttribute('viewBox', `-45 -184.5 390 669`);
 }
 
 /*
@@ -135,7 +138,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
     let start_time = null;
 
     function animate(time) {
-        updateViewBox();
+        // updateViewBox();
         if (!start_time) {
             start_time = time;
         }
@@ -334,6 +337,7 @@ const loaded = () => {
     alert("loaded at least :(")
     // initialize map
     map = document.getElementById('map');
+
 
     // initialize and periodically refresh viewBox
     updateViewBox();
