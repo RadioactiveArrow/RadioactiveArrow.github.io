@@ -12,9 +12,9 @@ const stations = {
 };
 
 const color_mappings = {
-    blue: "#59B3E5",
-    green: "#65AE75",
-    red: "#EE8052"
+    blue: "#3D393DCC",
+    green: "#3D393DCC",
+    red: "#3D393DCC"
 };
 
 let map;
@@ -301,6 +301,25 @@ const initializeEventListeners = () => {
     // initialize contact form trigger
     document.querySelector(`#send_form`).addEventListener("click", (e) => {
         e.preventDefault()
+        const btn = document.getElementById('send_form');
+        btn.value = 'Sending...';
+
+        const serviceID = 'service_3dixceg';
+        const templateID = 'template_7grvjan';
+
+        const content = {
+            sender: document.getElementById('email').value,
+            content: document.getElementById('text').value,
+        }
+   emailjs.send(serviceID, templateID, content)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+
         trainStop = false
     });
 }
@@ -344,8 +363,8 @@ const initializeScroll = () => {
     document.addEventListener("focusin", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely opened for an input field.");
-            const currentPos = map.getAttribute('viewBox').split(" ");
-            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
+            // const currentPos = map.getAttribute('viewBox').split(" ");
+            // map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 
@@ -355,8 +374,8 @@ const initializeScroll = () => {
             // moveScreenToStation(stations["contact"]);
             // updateViewBox();
             // move viewport back to original position
-            const currentPos = map.getAttribute('viewBox').split(" ");
-            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
+            // const currentPos = map.getAttribute('viewBox').split(" ");
+            // map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-20} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 }

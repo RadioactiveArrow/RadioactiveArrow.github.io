@@ -9,7 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="scripts/metro.js"></script>
-    <title>savvy chez.</title>
+    <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('fTCt1H5Xm1prGFt7c')
+  </script>  
+  <title>savvy chez.</title>
 </head>
 <body onLoad='loaded()'>
     <svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 65 1200 600" preserveAspectRatio="xMidYMid slice">
@@ -119,8 +124,8 @@
         <foreignObject id="contactObj" x="2440" y="400" width="400" height="500">
             <div xmlns="http://www.w3.org/1999/xhtml" class="content contact">
                 <h1>Contact Me</h1>
-                <input type="email" name="email" placeholder="your email address"  id="">
-                <textarea name="form-data" id="" cols="30" rows="10" placeholder="your message here :)"></textarea>
+                <input type="email" id="email" name="email" placeholder="your email address"  id="">
+                <textarea name="form-data" id="text" cols="30" rows="10" placeholder="your message here :)"></textarea>
                 <div class="contact-ctr">
                     <div id="home_blue" class="button to_home">
                         <a href="">&lt;- return home</a>
