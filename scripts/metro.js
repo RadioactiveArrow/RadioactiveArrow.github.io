@@ -344,6 +344,7 @@ const initializeScroll = () => {
     document.addEventListener("focusin", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely opened for an input field.");
+            moveScreenToStation(stations["contact"]);
             updateViewBox();
         }
     });
@@ -351,6 +352,7 @@ const initializeScroll = () => {
     document.addEventListener("focusout", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely closed for an input field.");
+            moveScreenToStation(stations["contact"]);
             updateViewBox();
         }
     });
@@ -368,11 +370,12 @@ const loaded = () => {
     // show map after loading viewBox
     setTimeout(() => {
         map.style.visibility = 'visible';
-    }, 100);
+        moveScreenToStation(stations["home"]);
+
+    }, 150);
 
     initializeEventListeners();
     initializeScroll();
-    moveScreenToStation(stations["home"]);
 }
 
 window.onresize = updateViewBox;
