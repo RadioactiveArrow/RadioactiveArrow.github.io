@@ -344,19 +344,19 @@ const initializeScroll = () => {
     document.addEventListener("focusin", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely opened for an input field.");
-            moveScreenToStation(stations["contact"]);
-            updateViewBox();
+            const currentPos = map.getAttribute('viewBox').split(" ");
+            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-10} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 
     document.addEventListener("focusout", (event) => {
         if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
             // console.log("Virtual keyboard likely closed for an input field.");
-            moveScreenToStation(stations["contact"]);
-            updateViewBox();
+            // moveScreenToStation(stations["contact"]);
+            // updateViewBox();
             // move viewport back to original position
-            const currentY = map.getAttribute('viewBox').split(" ")[1];
-            map.setAttribute('viewBox', `0 ${currentY-10} 390 669`);
+            const currentPos = map.getAttribute('viewBox').split(" ");
+            map.setAttribute('viewBox', `${currentPos[0]} ${currentPos[1]-10} ${currentPos[2]} ${currentPos[3]}`);
         }
     });
 }
