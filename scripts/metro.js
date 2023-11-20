@@ -103,10 +103,11 @@ function updateViewBox() {
 */
 function _calculateIntermediateViewBox(start, targetElement, svgContainer, progress) {
     let bbox = targetElement.getBBox();
-
+    let bboxX = Number.parseFloat(targetElement.getAttribute("x"));
+    let bboxY = Number.parseFloat(targetElement.getAttribute("y"));
     // destination center position
-    let destCenterX = bbox.x + bbox.width / 2;
-    let destCenterY = bbox.y + bbox.height / 2;
+    let destCenterX = bboxX + bbox.width / 2;
+    let destCenterY = bboxY + bbox.height / 2;
 
     // svg container dimensions
     let svgWidth = svgContainer.clientWidth;
