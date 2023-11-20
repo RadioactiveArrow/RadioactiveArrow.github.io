@@ -57,9 +57,12 @@ function updateViewBox() {
 
 
     // calculate the center of the smaller SVG element
-    let bbox = svgElement.getBoundingClientRect();
-    let centerX = (bbox.x + bbox.width / 2);
-    let centerY = (bbox.y + bbox.height / 2);
+    let bbox = svgElement.getBBox();
+    let bboxX = Number.parseFloat(svgElement.getAttribute("x"));
+    let bboxY = Number.parseFloat(svgElement.getAttribute("y"));
+    console.log(bboxX, bboxY, bbox.width, bbox.height)
+    let centerX = (bboxX + bbox.width / 2);
+    let centerY = (bboxY + bbox.height / 2);
 
     // get the dimensions of the SVG container
     let svgWidth = map.clientWidth;
