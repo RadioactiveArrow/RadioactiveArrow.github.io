@@ -361,3 +361,4 @@ const loaded = () => {
 }
 
 window.onresize = updateViewBox;
+window.visualViewport.addEventListener('resize', updateViewBox);
