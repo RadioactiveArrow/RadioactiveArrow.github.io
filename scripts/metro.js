@@ -181,9 +181,8 @@ const moveScreenToStation = (destination) => {
     currentViewBox = map.getAttribute('viewBox').split(" ");
     currentViewBox = currentViewBox.map((x) => parseInt(x));
     const timeOut = (destination == "homeObj") ? 0 : 500;
-    const panMultiplier = (destination == "contactObj") ? 1.5 : 1;
     setTimeout(() => {
-        _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME * panMultiplier); 
+        _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME); // 3 seconds
     }, timeOut);
 }
 
