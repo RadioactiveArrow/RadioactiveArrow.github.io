@@ -357,6 +357,7 @@ const loaded = () => {
 
     initializeEventListeners();
     initializeScroll();
+    moveScreenToStation(stations["home"]);
 }
 
 window.onresize = updateViewBox;
