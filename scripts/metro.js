@@ -58,8 +58,8 @@ function updateViewBox() {
 
     // calculate the center of the smaller SVG element
     let bbox = svgElement.getBBox();
-    let bboxX = Number.parseFloat(svgElement.getAttribute("x"));
-    let bboxY = Number.parseFloat(svgElement.getAttribute("y"));
+    let bboxX = bbox.x ||  Number.parseFloat(svgElement.getAttribute("x"));
+    let bboxY = bbox.y || Number.parseFloat(svgElement.getAttribute("y"));
     console.log(bboxX, bboxY, bbox.width, bbox.height)
     let centerX = (bboxX + bbox.width / 2);
     let centerY = (bboxY + bbox.height / 2);
@@ -116,6 +116,8 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     // destination viewBox values to center the element
     let destViewBoxX = destCenterX - svgWidth / 2;
     let destViewBoxY = destCenterY - svgHeight / 2;
+
+    alert("bboxX" + bboxX + " bboxY" + bboxY +  " destViewBoxX " + destViewBoxX + " destViewBoxY " + destViewBoxY + " svgWidth " + svgWidth + " svgHeight " + svgHeight )
 
     // interpolate between start and destination values
     let x = start[0] + progress * (destViewBoxX - start[0]);
@@ -177,6 +179,7 @@ const moveScreenToStation = (destination) => {
     currentState = Object.keys(stations).find((key) => stations[key] === destination);
     currentViewBox = map.getAttribute('viewBox').split(" ");
     currentViewBox = currentViewBox.map((x) => parseInt(x));
+    alert("currentViewBox " + currentViewBox + " currentState " + currentState + " destination " + destination)
     _animateViewBox(currentViewBox, `${currentState}Obj`, STATION_PAN_TIME); // 3 seconds
 }
 
