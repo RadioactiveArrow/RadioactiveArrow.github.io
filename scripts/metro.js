@@ -339,6 +339,21 @@ const initializeScroll = () => {
             handleScroll(deltaY * 1.5, 60);
         }
     }, { passive: false });
+
+    // Listen for focus and blur events on input elements
+    document.addEventListener("focusin", (event) => {
+        if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
+            // console.log("Virtual keyboard likely opened for an input field.");
+            updateViewBox();
+        }
+    });
+
+    document.addEventListener("focusout", (event) => {
+        if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
+            // console.log("Virtual keyboard likely closed for an input field.");
+            updateViewBox();
+        }
+    });
 }
 
 const loaded = () => {
