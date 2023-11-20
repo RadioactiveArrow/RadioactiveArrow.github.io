@@ -20,6 +20,7 @@ const color_mappings = {
 let map;
 
 const STATION_PAN_TIME = 3000; // time to pan between stations (milliseconds)
+const BLUE_STATION_POS = 2865.1; // position of blue station on blue line (pixels)
 
 const TRAIN_SPEED = 14; // speed of the train in pixels per frame
 const TRAIN_CART_OFFSET = 40; // offset between train and each cart
@@ -220,7 +221,7 @@ const moveTrain = (pathWay) => {
         }
 
         // stop blue train & wait if at intermediate station
-        if (pathWay == "blue" && trainStop && trainPos + TRAIN_SPEED >= 2665.1) {
+        if (pathWay == "blue" && trainStop && trainPos + TRAIN_SPEED >= BLUE_STATION_POS) {
             requestAnimationFrame(animateTrain);
             return;
         }
