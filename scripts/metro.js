@@ -57,7 +57,7 @@ function updateViewBox() {
 
 
     // calculate the center of the smaller SVG element
-    let bbox = svgElement.getBBox();
+    let bbox = svgElement.getBoundingClientRect();
     let centerX = (bbox.x + bbox.width / 2);
     let centerY = (bbox.y + bbox.height / 2);
 
@@ -69,7 +69,7 @@ function updateViewBox() {
     let viewBoxX = centerX - svgWidth / 2;
     let viewBoxY = centerY - svgHeight / 2;
     
-    alert("svgWidth " + svgWidth + " svgHeight " + svgHeight + " viewBoxX " + viewBoxX + " viewBoxY " + viewBoxY + " centerX " + centerX + " centerY " + centerY + " bbox.x " + bbox.x + " bbox.y " + bbox.y + " bbox.width " + bbox.width + " bbox.height " + bbox.height)
+    // alert("svgWidth " + svgWidth + " svgHeight " + svgHeight + " viewBoxX " + viewBoxX + " viewBoxY " + viewBoxY + " centerX " + centerX + " centerY " + centerY + " bbox.x " + bbox.x + " bbox.y " + bbox.y + " bbox.width " + bbox.width + " bbox.height " + bbox.height)
 
     // if on projects page, preserve scroll position on resize / update
     allowScroll = (currentState == "projects")
@@ -79,7 +79,7 @@ function updateViewBox() {
         return;
     }
 
-    alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
+    // alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
     map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
@@ -340,7 +340,7 @@ const loaded = () => {
 
     // initialize and periodically refresh viewBox
     updateViewBox();
-    setInterval(updateViewBox, 2000);
+    // setInterval(updateViewBox, 2000);
 
     // show map after loading viewBox
     setTimeout(() => {
