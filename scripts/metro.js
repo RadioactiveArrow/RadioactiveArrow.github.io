@@ -389,7 +389,7 @@ const loaded = () => {
 
     // initialize and periodically refresh viewBox
     updateViewBox();
-    // setInterval(updateViewBox, 2000);
+    setInterval(updateViewBox, 1500);
     // moveScreenToStation(stations["home"]);
 
     // show map after loading viewBox
