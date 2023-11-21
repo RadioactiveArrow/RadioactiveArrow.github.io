@@ -32,11 +32,32 @@ const TRAIN_ANGLE_LOOKAHEAD_COUNT = 5;  // # of look ahead points for smoothing
 let currentState = "home";
 let allowScroll = false;
 let isAnimating = false;
+let animProgress = 0;
 let trainStop = true; // enables early stop on blue line
 let scrollPos = 0;
 let minScroll = 0;
 let maxScroll = 0;
 
+
+function centerSvgElement(svgContainer, svgElement) {
+    // Get the bounding box of the element to center
+    let bbox = svgElement.getBBox();
+    
+    // Calculate the center position
+    let centerX = (bbox.x + bbox.width / 2);
+    let centerY = (bbox.y + bbox.height / 2);
+
+    // Get the dimensions of the SVG container
+    let svgWidth = svgContainer.clientWidth;
+    let svgHeight = svgContainer.clientHeight;
+
+    // Calculate new viewBox values to center the element
+    let viewBoxX = centerX - svgWidth / 2;
+    let viewBoxY = centerY - svgHeight / 2;
+
+    // Set the new viewBox on the SVG container
+    svgContainer.setAttribute('viewBox', `${viewBoxX} ${viewBoxY} ${svgWidth} ${svgHeight}`);
+}
 
 /*
     updateViewBox() -
@@ -46,14 +67,17 @@ let maxScroll = 0;
 */
 function updateViewBox() {
     if (isAnimating) {
-        return;
+        // return;
+        // console.log("a")
     }
+
     // get the current state's SVG element
     let svgElement = document.getElementById(`${currentState}Obj`);
     if (!svgElement) {
         console.error(`could not find SVG element for ${currentState}`);
         return;
     }
+    // console.log(svgElement  )
 
     // set a station's SVG element width to width of its HTML children
     const children = svgElement.children;
@@ -65,7 +89,7 @@ function updateViewBox() {
     let bbox = svgElement.getBBox();
     let bboxX = bbox.x ||  Number.parseFloat(svgElement.getAttribute("x"));
     let bboxY = bbox.y || Number.parseFloat(svgElement.getAttribute("y"));
-    console.log(bboxX, bboxY, bbox.width, bbox.height)
+    // console.log(bboxX, bboxY, bbox.width, bbox.height)
     let centerX = (bboxX + bbox.width / 2);
     let centerY = (bboxY + bbox.height / 2);
 
@@ -123,8 +147,8 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     let destViewBoxY = destCenterY - svgHeight / 2;
 
     // alert("bboxX" + bboxX + " bboxY" + bboxY +  " destViewBoxX " + destViewBoxX + " destViewBoxY " + destViewBoxY + " svgWidth " + svgWidth + " svgHeight " + svgHeight )
-
     // interpolate between start and destination values
+    animProgress = progress;
     let x = start[0] + progress * (destViewBoxX - start[0]);
     let y = start[1] + progress * (destViewBoxY - start[1]);
     let width = start[2] + progress * (svgWidth - start[2]);
@@ -155,9 +179,12 @@ function _animateViewBox(originViewBox, destElementId, duration) {
         }
 
         let progress = (time - start_time) / duration;
-        progress = progress < 0.5 ? 4 * progress * progress * progress : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1;
+        progress = Math.min(1.0, progress < 0.5 ? 4 * progress * progress * progress : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1);
+
+    
 
         // intermediate viewBox values during animation
+        // console.log('calcing with prog ' + progress)
         let currentViewBox = _calculateIntermediateViewBox(originViewBox, targetElement, map, progress);
 
         map.setAttribute('viewBox', currentViewBox);
@@ -168,6 +195,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
             minScroll = Number.parseFloat(currentViewBox.split(" ")[1]);
             maxScroll = minScroll + Number.parseFloat(currentViewBox.split(" ")[3]);
             isAnimating = false;
+
         }
     }
 
@@ -264,7 +292,7 @@ const moveTrain = (pathWay) => {
         angles[id] = smoothedAngle;
 
         if (isNaN(smoothedAngle)) {
-            console.log("lookahead angle is NaN")
+            // console.log("lookahead angle is NaN")
             return;
         }
 
@@ -395,7 +423,7 @@ const loaded = () => {
 
     // initialize and periodically refresh viewBox
     updateViewBox();
-    setInterval(updateViewBox, 1500);
+    // setIntervalf(updateViewBox, 1500);
     // moveScreenToStation(stations["home"]);
 
     // show map after loading viewBox
