@@ -33,4 +33,4 @@ jobs:
         git config --global user.email 'savvychez@gmail.com'
         git add .
         git commit -m "Update portfolio page" || echo "No changes to commit"
-        git push
+        git push origin gh-pages --force
