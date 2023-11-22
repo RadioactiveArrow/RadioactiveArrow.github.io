@@ -9,7 +9,8 @@ const projects = [
     "description": "A link shortener with a modern UI and a powerful analytics system.",
     "image": "assets/5avc.png",
     "url": "https://5a.vc",
-    "github": "https://github.com/savvychez/5a"
+    "github": "https://github.com/savvychez/5a",
+    "technologies": ["nextjs", "supabase", "serverless"]
   },
   {
     "name": "Meridian",
