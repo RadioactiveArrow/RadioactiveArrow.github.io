@@ -40,7 +40,7 @@ const projects = [
 ]
 
 // load the HTML file
-const htmlFile = fs.readFileSync('./index.html', 'utf8');
+const htmlFile = fs.readFileSync('../index.html', 'utf8');
 const dom = new JSDOM(htmlFile);
 const document = dom.window.document;
 
@@ -77,4 +77,4 @@ projects.forEach(project => {
 });
 
 // write the changes back to the HTML file
-fs.writeFileSync('./index.html', dom.serialize());
+fs.writeFileSync('../index.html', dom.serialize());
