@@ -20,10 +20,11 @@ jobs:
     - run: npm install -g terser
     - run: npm install -g csso-cli
     - run: npm install -g html-minifier
-    - run: npm install -g jsdom
+    - run: npm install -jsdom
 
     - name: convert json to html
       run: |
+        npm i
         node ci/hydrate.js
         
     - name: commit and push to deployment branch
