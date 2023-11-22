@@ -61,6 +61,18 @@ while (projectsList.firstChild) {
     projectsList.removeChild(projectsList.firstChild);
 }
 
+// set height of foreignObject
+const foreignObject = document.querySelector('#projectsObj-fO');
+foreignObject.setAttribute('height', projects.length * 425);
+
+// extend rail path to fit new projects
+const rail = document.querySelector('#redline_cont');
+rail.setAttribute('y2', 1400 + (projects.length * 425));
+
+// move station to fit new projects
+const statProject = document.querySelector('#statProject');
+statProject.setAttribute('cy', 1400 + (projects.length * 425));
+
 // convert JSON data to HTML and append to the projects list
 projects.forEach(project => {
     const projectItem = document.createElement('div');
