@@ -311,7 +311,7 @@ const initializeEventListeners = () => {
     // initialize station travel triggers
     destinations.forEach((destination) => {
         document.querySelector(`#to_${destination}`).addEventListener("click", (e) => {
-            // e.preventDefault()
+            e.preventDefault()
             moveTrain(destination[1], 1);
             setTimeout(() => {
                 moveScreenToStation(stations[destination[0]]);

@@ -81,7 +81,7 @@ body {
 .about > p {
     color: var(--dark);
     width: 400px;
-    padding: 20px 1px;
+    padding: 8px 1px;
     font-weight: 500;
     text-align: justify;
     font-size: 1.1em;
@@ -386,7 +386,7 @@ li::before {
 
     .about > p {
         width: 280px;
-        padding: 20px 1px 30px 36px;
+        padding: 10px 1px 30px 36px;
         text-align: start;
         font-size: 1.2em;
     }
