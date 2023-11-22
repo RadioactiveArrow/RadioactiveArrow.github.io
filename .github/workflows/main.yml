@@ -31,6 +31,7 @@ jobs:
       run: |
         git config --global user.name 'savvychez'
         git config --global user.email 'savvychez@gmail.com'
+        git checkout -b gh-pages
         git add .
         git commit -m "Update portfolio page" || echo "No changes to commit"
         git push origin gh-pages --force
