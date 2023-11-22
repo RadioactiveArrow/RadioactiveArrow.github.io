@@ -4,6 +4,14 @@ const { JSDOM } = require('jsdom');
 
 const projects = [
   {
+    "name": "5a.vc",
+    "subtitle": "the link shrinker for the modern web",
+    "description": "A link shortener with a modern UI and a powerful analytics system.",
+    "image": "assets/5avc.png",
+    "url": "https://5a.vc",
+    "github": "https://github.com/savvychez/5a"
+  },
+  {
     "name": "Meridian",
     "subtitle": "sea surface analytics, at scale",
     "description": "A platform for analyzing trends in and visualizing large sets of oceanic climate data!",
@@ -40,7 +48,7 @@ const projects = [
 ]
 
 // load the HTML file
-const htmlFile = fs.readFileSync('../index.html', 'utf8');
+const htmlFile = fs.readFileSync('./index.html', 'utf8');
 const dom = new JSDOM(htmlFile);
 const document = dom.window.document;
 
@@ -77,4 +85,4 @@ projects.forEach(project => {
 });
 
 // write the changes back to the HTML file
-fs.writeFileSync('../index.html', dom.serialize());
+fs.writeFileSync('./index.html', dom.serialize());
