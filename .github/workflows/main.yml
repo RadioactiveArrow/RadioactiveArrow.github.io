@@ -1,0 +1,35 @@
+name: Update Portfolio
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@v2
+
+    - name: set up node.js and packages
+      uses: actions/setup-node@v1
+      with:
+        node-version: '16'
+    - run: npm install -g terser
+    - run: npm install -g csso-cli
+    - run: npm install -g html-minifier
+    - run: npm install -g jsdom
+
+    - name: convert json to html
+      run: |
+        node ci/hydrate.js
+        
+    - name: commit and push to deployment branch
+      run: |
+        git config --global user.name 'savvychez'
+        git config --global user.email 'savvychez@gmail.com'
+        git add .
+        git commit -m "Update portfolio page" || echo "No changes to commit"
+        git push
