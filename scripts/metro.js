@@ -81,6 +81,12 @@ function updateViewBox() {
     const maxWidth = Math.max(...Array.from(children).map((x) => x.offsetWidth));
     svgElement.setAttribute("width", maxWidth);
 
+    // set a station's SVG element height to height of its HTML children
+    if (currentState != "home") {
+        const maxHeight = Math.max(...Array.from(children).map((x) => x.offsetHeight));
+        svgElement.setAttribute("height", maxHeight);   
+    }
+
 
     // calculate the center of the smaller SVG element
     let bbox = svgElement.getBBox();
@@ -306,8 +312,8 @@ const moveTrain = (pathWay, rev) => {
         // shrink train if close to destination or origin
         if (pos > pathLength - 50) {
             scale = 1 - (pos - (pathLength - 50)) / 100;
-        } else if (pos < 50) {
-            scale = 1 - (50 - pos) / 100;
+        } else if (pos < 100) {
+            scale = 1 - (100 - pos) / 100;
         }
 
         // finally, update the train component's position, rotation, and scale
