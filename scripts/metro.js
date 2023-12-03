@@ -1,14 +1,15 @@
 const destinations = [
     ["projects", "red"],
     ["about", "green"],
-    ["contact", "blue"]
+    ["contact", "blue"],
 ];
 
 const stations = {
     about: "aboutObj",
     contact: "contactObj",
     home: "homeObj",
-    projects: "projectsObj"
+    projects: "projectsObj",
+    homered: "homered",
 };
 
 const color_mappings = {
@@ -213,8 +214,13 @@ const moveScreenToStation = (destination) => {
     }, timeOut);
 }
 
+const reverseAngleLookup = {
+    "homeblue": 0,
+    "homegreen": -135,
+    "homered": -90
+}
 
-const moveTrain = (pathWay) => {
+const moveTrain = (pathWay, rev) => {
     trainStop = true; // enable early stop on blue line by default
 
     const path = document.getElementById(`${pathWay}Line`);
@@ -225,7 +231,7 @@ const moveTrain = (pathWay) => {
     // train position offsets for red line
     for (i = 0; i < train_components.length; i++) {
         train_components[i].setAttribute("y", pathWay == "red" ? "-4" : "-11");
-        train_components[i].setAttribute("stroke", color_mappings[pathWay]);
+        train_components[i].setAttribute("stroke", "#3D393DCC");
     }
 
     let pathLength = path.getTotalLength();
@@ -244,9 +250,13 @@ const moveTrain = (pathWay) => {
     // handle train animations based on speed and path
     function animateTrain() {
         // end ride once it's fully past end of path
-        if (trainPos > TRAIN_DIST_CUTOFF * pathLength) {
+        if (trainPos > TRAIN_DIST_CUTOFF * pathLength || (rev && trainPos > pathLength)) {
             setTrainVisibility(false)
             return;
+        }
+        let forceAngle = false;
+        if (trainPos < 200 && rev) {
+            forceAngle = true;
         }
 
         // stop blue train & wait if at intermediate station
@@ -256,18 +266,18 @@ const moveTrain = (pathWay) => {
         }
 
         // update train and cart positions based on speed
-        trainPos += TRAIN_SPEED;
-        updatePosition(train, trainPos % pathLength, 'train');
+        trainPos += TRAIN_SPEED * (rev ? 1.25 : 1);
+        updatePosition(train, trainPos % pathLength, 'train', forceAngle);
         carts.forEach((cart, index) => {
             let cartId = cart.id;
             let cartPos = (trainPos - TRAIN_CART_OFFSET * (index + 1) + pathLength);
-            updatePosition(cart, cartPos % pathLength, cartId);
+            updatePosition(cart, cartPos % pathLength, cartId, forceAngle);
         });
 
         requestAnimationFrame(animateTrain);
     }
 
-    function updatePosition(element, pos, id) {
+    function updatePosition(element, pos, id, forceAngle) {
         let point = path.getPointAtLength(pos);
 
         /* calculate the average angle over the next few points to smooth out the rotation */
@@ -279,11 +289,10 @@ const moveTrain = (pathWay) => {
             totalAngle += Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x);
         }
         let angle = totalAngle / TRAIN_ANGLE_LOOKAHEAD_COUNT * 180 / Math.PI;
-
         // smooth out the rotation for each element
         let smoothedAngle = angles[id] + (angle - angles[id]) * 0.24; // Adjust the smoothing factor if needed
-        angles[id] = smoothedAngle;
-
+        angles[id] = !forceAngle ? smoothedAngle : reverseAngleLookup[pathWay];
+        console.log(smoothedAngle)
         if (isNaN(smoothedAngle)) {
             // console.log("lookahead angle is NaN")
             return;
@@ -294,9 +303,11 @@ const moveTrain = (pathWay) => {
         let centerY = element.height.baseVal.value / 2 - (pathWay == "red" ? 5 : 10);
         let scale = 1;
 
-        // shrink train if close to destination
+        // shrink train if close to destination or origin
         if (pos > pathLength - 50) {
             scale = 1 - (pos - (pathLength - 50)) / 100;
+        } else if (pos < 50) {
+            scale = 1 - (50 - pos) / 100;
         }
 
         // finally, update the train component's position, rotation, and scale
@@ -312,7 +323,7 @@ const initializeEventListeners = () => {
     destinations.forEach((destination) => {
         document.querySelector(`#to_${destination}`).addEventListener("click", (e) => {
             e.preventDefault()
-            moveTrain(destination[1], 1);
+            moveTrain(destination[1], false);
             setTimeout(() => {
                 moveScreenToStation(stations[destination[0]]);
             }, 100);
@@ -325,6 +336,7 @@ const initializeEventListeners = () => {
             e.preventDefault()
             id = element.id.split("_")[1]
             moveScreenToStation(stations["home"]);
+            moveTrain(`home${id}`, true);
         });
     });
 

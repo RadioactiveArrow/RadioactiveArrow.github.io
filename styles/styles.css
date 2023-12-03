@@ -2,11 +2,12 @@
     --green: #65AE75;
     --green-light: #528f5f;
     --teal: #2B8D76;
-    --red: #EE8052;
-    --blue: #59B3E5;
+    --red: #EE8052de;
+    --blue: #59B3E5de;
     --blue-light: #75badf;
     --dark: #3D393D;
     --dark-light: #3D393DCC;
+    --dark-lighter: #3d393d75;
     --yellow: #F2C94C;
     --white: #FAF9EA;
 
@@ -95,6 +96,26 @@ body {
 }
 
 .about > a:hover {
+    text-decoration: none;
+}
+
+.credit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px 12px 12px 12px;
+    font-size: 14px;
+    text-align: right;
+    color: var(--dark-lighter);
+    z-index: 100;
+}
+
+.credit > a {
+    font-weight: 600;
+    color: var(--dark-lighter);
+}
+
+.credit > a:hover {
     text-decoration: none;
 }
 
@@ -356,26 +377,27 @@ img {
 
 
 li::before {
-    content: ''; /* Required for pseudo-elements */
+    content: ''; 
     position: absolute;
-    left: -47px; /* Adjust as needed to align the bullet */
-    top: 50%; /* Center the bullet vertically */
-    transform: translateY(-50%); /* Fine-tune the vertical alignment */
-    width: 18px; /* Size of the bullet */
-    height: 18px; /* Size of the bullet */
-    background-color: var(--red); /* Bullet color */
-    border-radius: 50%; /* Make it a circle */
-    border: 6px solid var(--white); /* Green outline */
-
+    left: -47px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 18px;
+    height: 18px;
+    background-color: var(--red);
+    border-radius: 50%;
+    border: 6px solid var(--white); 
 }
 
 #projectsObj-fO > div {
     position: fixed;
-    /* z-index: -10; */
 }
 
 @media screen and (max-width: 600px) {
-
+    .credit {
+        top: auto;
+        bottom: 0 !important;
+    }
     .about {
         padding: 0;
     }
