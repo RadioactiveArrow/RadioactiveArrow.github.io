@@ -1,78 +1,118 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
     <script src="scripts/metro.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script type="text/javascript">
-    emailjs.init('fTCt1H5Xm1prGFt7c')
-  </script>  
-  <title>savvy chezhian</title>
+    <script type="text/javascript">
+        emailjs.init('fTCt1H5Xm1prGFt7c')
+    </script>
+    <title>savvy chezhian</title>
 </head>
+
 <body onload="loaded()">
-    <p class="credit">designed by savvy chezhian<br/>inspired by <a href="https://store.steampowered.com/app/287980/Mini_Metro/" target="_blank">mini metro</a></p>
+    <p class="credit">designed by savvy chezhian<br>inspired by <a
+            href="https://store.steampowered.com/app/287980/Mini_Metro/" target="_blank">mini metro</a></p>
     <svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 65 1200 600" preserveAspectRatio="xMidYMid slice">
         <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(0, -65)">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#F1F1ED" stroke-width="3"/>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"
+                patternTransform="translate(0, -65)">
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="var(--grid)" stroke-width="3"></path>
             </pattern>
         </defs>
-        <rect x="-500" y="-500" width="5000" height="5000" fill="url(#grid)" />
+        <rect x="-500" y="-500" width="5000" height="5000" fill="url(#grid)"></rect>
 
-        
-        <path class="svg_greenline about" id="greenLine" d="M -310.5 164 L 729 164 L 1325 759" stroke="var(--green)" stroke-width="10" fill="none"></path>
-        <path class="svg_greenline_reverse about" id="homegreenLine" d="M 1325 759 L 729 164 L -350.5 164" stroke="none" stroke-width="10" fill="none"></path>
+
+        <path class="svg_greenline about" id="greenLine" d="M -310.5 164 L 729 164 L 1325 759" stroke="var(--green)"
+            stroke-width="10" fill="none"></path>
+        <path class="svg_greenline_reverse about" id="homegreenLine" d="M 1325 759 L 729 164 L -350.5 164" stroke="none"
+            stroke-width="10" fill="none"></path>
 
         <g id="aboutObja">
-            <circle class="station stat_about" id="statAbout" cx="1325" cy="759" r="12" fill="var(--white)" stroke="var(--green)" stroke-width="6"></circle>
+            <circle class="station stat_about" id="statAbout" cx="1325" cy="759" r="12" fill="var(--white)"
+                stroke="var(--green)" stroke-width="6"></circle>
             <foreignObject id="aboutObj" x="1336" y="740" width="600" height="420">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="content about">
                     <h1>about me</h1>
                     <p>hey! my name's savvy and i'm a computer science major at the university of texas at austin.
                         i'm interested in artificial intelligence, full stack development, and robotics.
-                        you can check out some of my work at on github or on my devpost! 
+                        you can check out some of my work at on github or on my devpost!
                     </p>
                     <div class="abt-ctr">
                         <div class="button green">
                             <a href="./Resume_Sarvesh_Chezhian.pdf">check out my resume!</a>
-                        </div>  
+                        </div>
                         <div id="home_green" class="button to_home">
                             <a href="">&lt;- return home</a>
-                        </div>     
+                        </div>
                     </div>
-                    
+
                 </div>
             </foreignObject>
         </g>
-        
 
 
-        <path class="svg_redline project" id="redLine" d="M 793 -207 L 493 93 L 493 1480" stroke="var(--red)" stroke-width="10" fill="none"></path>
-        <path class="svg_redline_reverse project" id="homeredLine" d="M 493 1480 L 493 93 L 793 -207" stroke="none" stroke-width="10" fill="none"></path>
-        <line id="redline_cont" class="redline_cont" x1="493" x2="493" y1="1480" y2="3525" stroke="var(--red)" stroke-width="10" fill="none"></line>
-        <circle class="station stat_projects" id="statProject" cx="493" cy="3525" r="12" fill="#FAFBEC" stroke="var(--red)" stroke-width="6"></circle>
-        <line id="projectsObj" class="station stat_project" x="450" y="1620" x1="450" y1="1600" x2="875" y2="1800" fill="none" stroke="none" stroke-width="6"></line>
-        <foreignObject xmlns="http://www.w3.org/1999/xhtml" id="projectsObj-fO" x="475" y="1400" width="400" height="2125">
+
+        <path class="svg_redline project" id="redLine" d="M 793 -207 L 493 93 L 493 1480" stroke="var(--red)"
+            stroke-width="10" fill="none"></path>
+        <path class="svg_redline_reverse project" id="homeredLine" d="M 493 1480 L 493 93 L 793 -207" stroke="none"
+            stroke-width="10" fill="none"></path>
+        <line id="redline_cont" class="redline_cont" x1="493" x2="493" y1="1480" y2="3525" stroke="var(--red)"
+            stroke-width="10" fill="none"></line>
+        <circle class="station stat_projects" id="statProject" cx="493" cy="3525" r="12" fill="#FAFBEC"
+            stroke="var(--red)" stroke-width="6"></circle>
+        <line id="projectsObj" class="station stat_project" x="500" y="1620" x1="475" y1="1600" x2="1600" y2="1800"
+            fill="none" stroke="none" stroke-width="6"></line>
+        <foreignObject xmlns="http://www.w3.org/1999/xhtml" id="projectsObj-fO" x="475" y="1400" width="1600"
+            height="2125">
             <div class="content projects">
                 <div class="proj-button-ctr">
                     <div id="home_red" class="button to_home">
                         <a href="">&lt;- return home</a>
-                    </div>  
+                    </div>
                 </div>
                 <ul class="projects-list">
-
+                    <div  class="project-item">
+                        <div class="title-container">
+                            <li><h1 class="name">5a.vc</h1></li>
+                            <p class="subtitle">the link shrinker for the modern web</p>
+                            <p class="desc">A link shortener with a modern UI and a powerful analytics system. really cool and you should def try it Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, illum.</p>
+                        </div>
+                        <div class="img-container">
+                            <!-- <li> -->
+                                <img src="assets/5avc.png" alt="" srcset="">
+                            <!-- </li> -->
+                            <div class="link-container">
+                                <a class="link b" target="_blank" href="https://5a.vc"><img src="assets/globe.svg"
+                                        alt="">
+                                    <p>visit</p>
+                                </a>
+                                <a class="link b" target="_blank" href="https://github.com/savvychez/5a"><img
+                                        src="assets/logo.svg" alt="">
+                                    <p>github</p>
+                                </a>
+                            </div>
+                            <p class="code"><strong>tech:</strong> nextjs, supabase, serverless</p>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </foreignObject>
 
-        <path class="svg_blueline contact" id="blueLine" d="M -200 495 L 797 495 L 897 390 L 2790 395" stroke="var(--blue)" stroke-width="10" fill="none"></path>
+        <path class="svg_blueline contact" id="blueLine" d="M -200 495 L 797 495 L 897 390 L 2790 395"
+            stroke="var(--blue)" stroke-width="10" fill="none"></path>
         <!-- <path class="svg_blueline_reverse contact" id="homeblueLine" d="M 2790 395 L 897 390 L 797 495 L -200 495" stroke="green" stroke-width="10" fill="none"></path> -->
 
-        <circle class="station stat_contact" id="statContact" cx="2790" cy="395" r="12" fill="#FAFBEC" stroke="var(--blue)" stroke-width="6"></circle>
+        <circle class="station stat_contact" id="statContact" cx="2790" cy="395" r="12" fill="#FAFBEC"
+            stroke="var(--blue)" stroke-width="6"></circle>
 
         <foreignObject id="contactObj" x="2440" y="400" width="400" height="500">
             <div xmlns="http://www.w3.org/1999/xhtml" class="content contact">
@@ -85,47 +125,58 @@
                     </div>
                     <div id="send_form" class="button blue ">
                         <a href="">send -&gt;</a>
-                    </div>    
+                    </div>
                 </div>
-                
+
             </div>
         </foreignObject>
-    
-       
-        
+
+
+
 
         <foreignObject id="homeObj" x="484" y="155" width="300" height="300">
             <div class="content body" xmlns="http://www.w3.org/1999/xhtml">
-              <div>
-                <div class="name_panel">
-                    <h1>savvy<br>chezhian</h1>
+                <div>
+                    <div class="name_panel">
+                        <h1>savvy<br>chezhian</h1>
+                    </div>
                 </div>
-              </div>
             </div>
         </foreignObject>
 
-        
+
         <!-- Menu Nav Buttons -->
-        <circle class="button top" cx="493" cy="320" r="10" fill="var(--green)" stroke="var(--white)" stroke-width="4"></circle>
+        <circle class="button top" cx="493" cy="320" r="10" fill="var(--green)" stroke="var(--white)" stroke-width="4">
+        </circle>
         <foreignObject x="486" y="305" width="200" height="50">
-            <a xmlns="http://www.w3.org/1999/xhtml" id="to_about" href="#about" class="link_button" style="color: var(--green);">about</a>
+            <a xmlns="http://www.w3.org/1999/xhtml" id="to_about" href="#about" class="link_button"
+                style="color: var(--green);">about</a>
         </foreignObject>
-        
-        <circle class="button mid" cx="493" cy="370" r="10" fill="var(--red)" stroke="var(--white)" stroke-width="4"></circle>
+
+        <circle class="button mid" cx="493" cy="370" r="10" fill="var(--red)" stroke="var(--white)" stroke-width="4">
+        </circle>
         <foreignObject x="486" y="355" width="200" height="50">
-            <a xmlns="http://www.w3.org/1999/xhtml" id="to_projects" href="#projects" class="link_button" style="color: var(--red);">projects</a>
+            <a xmlns="http://www.w3.org/1999/xhtml" id="to_projects" href="#projects" class="link_button"
+                style="color: var(--red);">projects</a>
         </foreignObject>
 
-        <circle class="button bottom" cx="493" cy="420" r="10" fill="var(--blue)" stroke="var(--white)" stroke-width="4"></circle>
+        <circle class="button bottom" cx="493" cy="420" r="10" fill="var(--blue)" stroke="var(--white)"
+            stroke-width="4"></circle>
         <foreignObject x="486" y="405" width="200" height="50">
-            <a xmlns="http://www.w3.org/1999/xhtml" id="to_contact" href="#" class="link_button" style="color: var(--blue);">contact</a>
+            <a xmlns="http://www.w3.org/1999/xhtml" id="to_contact" href="#" class="link_button"
+                style="color: var(--blue);">contact</a>
         </foreignObject>
 
-        <rect class="train_component" id="train" x="-10" y="-2" visibility="hidden" width="40" height="22" fill="var(--white)" stroke="var(--blue)" stroke-width="5"></rect>
-        <rect class="train_component" id="cart1" x="-20" y="-2" visibility="hidden" width="40" height="22" fill="var(--white)" stroke="var(--blue)" stroke-width="5"></rect>
-        <rect class="train_component" id="cart2" x="-30" y="-2" visibility="hidden" width="40" height="22" fill="var(--white)" stroke="var(--blue)" stroke-width="5"></rect>
-    
+        <rect class="train_component" id="train" x="-10" y="-2" visibility="hidden" width="40" height="22"
+            fill="var(--train)" stroke="var(--blue)" stroke-width="5"></rect>
+        <rect class="train_component" id="cart1" x="-20" y="-2" visibility="hidden" width="40" height="22"
+            fill="var(--train)" stroke="var(--blue)" stroke-width="5"></rect>
+        <rect class="train_component" id="cart2" x="-30" y="-2" visibility="hidden" width="40" height="22"
+            fill="var(--train)" stroke="var(--blue)" stroke-width="5"></rect>
 
-    </svg>    
 
-</body></html>
+    </svg>
+
+</body>
+
+</html>

@@ -81,6 +81,15 @@ function updateViewBox() {
     const maxWidth = Math.max(...Array.from(children).map((x) => x.offsetWidth));
     svgElement.setAttribute("width", maxWidth);
 
+    if (currentState == "projects") {
+        projItem = document.querySelector("#projectsObj-fO");
+        const projItemChildren = projItem.children;
+        const maxWidth = Math.max(...Array.from(projItemChildren).map((x) => x.offsetWidth));
+        projItem.setAttribute("width", maxWidth);
+
+        svgElement.setAttribute("x2", Number.parseFloat(projItem.getAttribute("x")) + maxWidth);
+    }
+
     // set a station's SVG element height to height of its HTML children
     if (currentState != "home") {
         const maxHeight = Math.max(...Array.from(children).map((x) => x.offsetHeight));

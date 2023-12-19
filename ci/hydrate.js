@@ -82,6 +82,7 @@ projects.forEach(project => {
         <div class="title-container">
             <li><h1 class="name">${project.name}</h1></li>
             <p class="subtitle">${project.subtitle}</p>
+            <p class="desc">${project.description}</p>
         </div>
         <div class="img-container">
             <img src="${project.image}" alt="" srcset="">
