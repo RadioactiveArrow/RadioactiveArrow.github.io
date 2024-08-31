@@ -5,21 +5,12 @@ const { JSDOM } = require('jsdom');
 const projects = [
   {
     "name": "5a.vc",
-    "subtitle": "the wicked-fast link shrinker for the modern web",
-    "description": "A URL shortener with a modern UI and a powerful analytics system.",
+    "subtitle": "the link shrinker for the modern web",
+    "description": "A link shortener with a modern UI and a powerful analytics system.",
     "image": "assets/5avc.png",
     "url": "https://5a.vc",
     "github": "https://github.com/savvychez/5a",
     "technologies": ["nextjs", "supabase", "serverless"]
-  },
-  {
-    "name": "Chiworks",
-    "subtitle": "more than a job platform",
-    "description": "A community connecting Chicago's underserved with employment training & resources.",
-    "image": "assets/chiworks.png",
-    "url": "https://chiworks.svv.sh/",
-    "github": "https://github.com/savvychez/chiworks",
-    "technologies": ["reactjs", "flask", "mysql"] 
   },
   {
     "name": "Meridian",
@@ -32,19 +23,12 @@ const projects = [
   },
   {
     "name": "Tributary",
-    "subtitle": "a global perspective on the world's news",
+    "subtitle": "a different perspective on the world's news",
     "description": "Witness global events as they unfold on the news aggregator built for a changing world.",
     "image": "assets/tributary.png",
+    "url": "https://tributary.svvc.dev/",
     "github": "https://github.com/savvychez/tributary-web",
     "technologies": ["reactjs", "python", "NLP"]
-  },
-  {
-    "name": "CSPrep",
-    "subtitle": "an education platform built for code",
-    "description": "A test review platform with complete Java language support and a comprehensive tutoring system.",
-    "image": "assets/csprep2.png",
-    "github": "https://github.com/savvychez/csprep",
-    "technologies": ["php", "mysql", "nginx"]
   },
   {
     "name": "RecipeBook",
@@ -53,6 +37,14 @@ const projects = [
     "image": "assets/RecipeBook.png",
     "github": "https://github.com/savvychez/recipe-book",
     "technologies": ["reactjs", "express", "mongo-db"]
+  },
+  {
+    "name": "CSPrep",
+    "subtitle": "an education platform built for code",
+    "description": "A test review platform with complete Java language support and a comprehensive tutoring system.",
+    "image": "assets/csprep2.png",
+    "github": "https://github.com/savvychez/csprep",
+    "technologies": ["php", "mysql", "nginx"]
   }
 ]
 
