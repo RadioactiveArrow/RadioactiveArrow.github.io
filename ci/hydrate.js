@@ -5,12 +5,21 @@ const { JSDOM } = require('jsdom');
 const projects = [
   {
     "name": "5a.vc",
-    "subtitle": "the link shrinker for the modern web",
-    "description": "A link shortener with a modern UI and a powerful analytics system.",
+    "subtitle": "the wicked-fast link shrinker for the modern web",
+    "description": "A URL shortener with a modern UI and a powerful analytics system.",
     "image": "assets/5avc.png",
     "url": "https://5a.vc",
     "github": "https://github.com/savvychez/5a",
     "technologies": ["nextjs", "supabase", "serverless"]
+  },
+  {
+    "name": "Chiworks",
+    "subtitle": "more than a job platform",
+    "description": "A community connecting Chicago's underserved with employment training & resources.",
+    "image": "assets/chiworks.png",
+    "url": "https://chiworks.svv.sh/",
+    "github": "https://github.com/savvychez/chiworks",
+    "technologies": ["reactjs", "flask", "mysql"] 
   },
   {
     "name": "Meridian",
@@ -31,6 +40,14 @@ const projects = [
     "technologies": ["reactjs", "python", "NLP"]
   },
   {
+    "name": "CSPrep",
+    "subtitle": "an education platform built for code",
+    "description": "A test review platform with complete Java language support and a comprehensive tutoring system.",
+    "image": "assets/csprep2.png",
+    "github": "https://github.com/savvychez/csprep",
+    "technologies": ["php", "mysql", "nginx"]
+  },
+  {
     "name": "RecipeBook",
     "subtitle": "a new way to pass down recipes",
     "description": "Built with a user-friendly UI and an infinitely scalable data model, RecipeBook is perfect for home cooks and michelin star chefs alike.",
@@ -38,14 +55,6 @@ const projects = [
     "github": "https://github.com/savvychez/recipe-book",
     "technologies": ["reactjs", "express", "mongo-db"]
   },
-  {
-    "name": "CSPrep",
-    "subtitle": "an education platform built for code",
-    "description": "A test review platform with complete Java language support and a comprehensive tutoring system.",
-    "image": "assets/csprep2.png",
-    "github": "https://github.com/savvychez/csprep",
-    "technologies": ["php", "mysql", "nginx"]
-  }
 ]
 
 // load the HTML file
