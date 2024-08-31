@@ -16,7 +16,7 @@ const projects = [
     "name": "Chiworks",
     "subtitle": "more than a job platform",
     "description": "A community connecting Chicago's underserved with employment training & resources.",
-    "image": "assets/chiworks.png",
+    "image": "assets/Chiworks.png",
     "url": "https://chiworks.svv.sh/",
     "github": "https://github.com/savvychez/chiworks",
     "technologies": ["reactjs", "flask", "mysql"] 
