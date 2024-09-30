@@ -96,7 +96,7 @@ function updateViewBox() {
     let centerX = (bboxX + bbox.width / 2);
     let centerY = (bboxY + bbox.height / 2);
 
-    let scaleFactor = 1 / (window.innerWidth / 1450);
+    let scaleFactor = window.innerWidth <= window.innerHeight ? 1 : 1 / (window.innerWidth / 1450);
     // get the dimensions of the SVG container
     let svgWidth = map.clientWidth * scaleFactor;
     let svgHeight = map.clientHeight * scaleFactor;
@@ -143,7 +143,7 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     let destCenterY = bboxY + bbox.height / 2;
 
     // svg container dimensions
-    let scaleFactor = 1 / (window.innerWidth / 1450);
+    let scaleFactor = window.innerWidth <= window.innerHeight ? 1 : 1 / (window.innerWidth / 1450);
     let svgWidth = svgContainer.clientWidth * scaleFactor;
     let svgHeight = svgContainer.clientHeight * scaleFactor;
 
