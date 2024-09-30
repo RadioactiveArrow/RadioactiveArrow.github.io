@@ -21,9 +21,9 @@ const color_mappings = {
 let map;
 
 const STATION_PAN_TIME = 3000; // time to pan between stations (milliseconds)
-const BLUE_STATION_POS = 2865.1; // position of blue station on blue line (pixels)
+const BLUE_STATION_POS = 3067.1; // position of blue station on blue line (pixels)
 
-const TRAIN_SPEED = 12; // speed of the train in pixels per frame
+const TRAIN_SPEED = 14; // speed of the train in pixels per frame
 const TRAIN_CART_OFFSET = 40; // offset between train and each cart
 const TRAIN_DIST_CUTOFF = 1.1; // distance multiplier to end the train animation
 const TRAIN_ANGLE_LOOKAHEAD_COUNT = 5;  // # of look ahead points for smoothing
@@ -96,9 +96,10 @@ function updateViewBox() {
     let centerX = (bboxX + bbox.width / 2);
     let centerY = (bboxY + bbox.height / 2);
 
+    let scaleFactor = 1 / (window.innerWidth / 1450);
     // get the dimensions of the SVG container
-    let svgWidth = map.clientWidth;
-    let svgHeight = map.clientHeight;
+    let svgWidth = map.clientWidth * scaleFactor;
+    let svgHeight = map.clientHeight * scaleFactor;
 
     // calculate new viewBox values to center the element
     let viewBoxX = centerX - svgWidth / 2;
@@ -117,21 +118,8 @@ function updateViewBox() {
     // alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
-    // map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+    map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
 
-    const containerWidth = map.clientWidth;
-    const containerHeight = map.clientHeight;
-
-    // Calculate the new viewBox values based on the container's size
-    const newViewBoxX = viewBoxX;
-    const newViewBoxY = viewBoxY;
-    const newSvgWidth = svgWidth * (containerWidth / svgWidth);
-    const newSvgHeight = svgHeight * (containerHeight / svgHeight);
-
-    // Update the viewBox attribute
-    map.setAttribute('viewBox', `${newViewBoxX} ${newViewBoxY} ${newSvgWidth} ${newSvgHeight}`);
-
-    // map.setAttribute('viewBox', `439 -117 390 669`);
     // map.setAttribute('viewBox', `-45 -184.5 390 669`);
 }
 
@@ -155,8 +143,9 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     let destCenterY = bboxY + bbox.height / 2;
 
     // svg container dimensions
-    let svgWidth = svgContainer.clientWidth;
-    let svgHeight = svgContainer.clientHeight;
+    let scaleFactor = 1 / (window.innerWidth / 1450);
+    let svgWidth = svgContainer.clientWidth * scaleFactor;
+    let svgHeight = svgContainer.clientHeight * scaleFactor;
 
     // destination viewBox values to center the element
     let destViewBoxX = destCenterX - svgWidth / 2;
@@ -210,6 +199,7 @@ function _animateViewBox(originViewBox, destElementId, duration) {
         } else {
             minScroll = Number.parseFloat(currentViewBox.split(" ")[1]);
             maxScroll = minScroll + Number.parseFloat(currentViewBox.split(" ")[3]);
+            
         }
     }
 
@@ -382,7 +372,6 @@ const initializeEventListeners = () => {
     });
 
         sendText = document.getElementById('text')
-        sendText.value = ""
         trainStop = false
     });
 }
