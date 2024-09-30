@@ -117,7 +117,20 @@ function updateViewBox() {
     // alert(viewBoxX + " " + viewBoxY + " " + svgWidth + " " + svgHeight)
 
     // update SVG container's  viewBox 
-    map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+    // map.setAttribute('viewBox', `${viewBoxX} ${(viewBoxY)} ${svgWidth} ${svgHeight}`);
+
+    const containerWidth = map.clientWidth;
+    const containerHeight = map.clientHeight;
+
+    // Calculate the new viewBox values based on the container's size
+    const newViewBoxX = viewBoxX;
+    const newViewBoxY = viewBoxY;
+    const newSvgWidth = svgWidth * (containerWidth / svgWidth);
+    const newSvgHeight = svgHeight * (containerHeight / svgHeight);
+
+    // Update the viewBox attribute
+    map.setAttribute('viewBox', `${newViewBoxX} ${newViewBoxY} ${newSvgWidth} ${newSvgHeight}`);
+
     // map.setAttribute('viewBox', `439 -117 390 669`);
     // map.setAttribute('viewBox', `-45 -184.5 390 669`);
 }
@@ -368,6 +381,8 @@ const initializeEventListeners = () => {
       alert(JSON.stringify(err));
     });
 
+        sendText = document.getElementById('text')
+        sendText.value = ""
         trainStop = false
     });
 }
