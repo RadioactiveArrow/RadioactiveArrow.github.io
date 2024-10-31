@@ -96,7 +96,7 @@ function updateViewBox() {
     let centerX = (bboxX + bbox.width / 2);
     let centerY = (bboxY + bbox.height / 2);
 
-    let scaleFactor = window.innerWidth <= window.innerHeight ? 1 : 1 / (window.innerWidth / 1450);
+    let scaleFactor = window.innerWidth <= 1450 ? 1 : 1 / (window.innerWidth / 1450);
     // get the dimensions of the SVG container
     let svgWidth = map.clientWidth * scaleFactor;
     let svgHeight = map.clientHeight * scaleFactor;
