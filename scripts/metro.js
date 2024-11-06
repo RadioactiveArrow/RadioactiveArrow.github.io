@@ -74,7 +74,6 @@ function updateViewBox() {
         console.error(`could not find SVG element for ${currentState}`);
         return;
     }
-    // console.log(svgElement  )
 
     // set a station's SVG element width to width of its HTML children
     const children = svgElement.children;
@@ -97,6 +96,7 @@ function updateViewBox() {
     let centerY = (bboxY + bbox.height / 2);
 
     let scaleFactor = window.innerWidth <= 1450 ? 1 : 1 / (window.innerWidth / 1450);
+    console.log(window.innerWidth <= 1450)
     // get the dimensions of the SVG container
     let svgWidth = map.clientWidth * scaleFactor;
     let svgHeight = map.clientHeight * scaleFactor;
@@ -143,7 +143,7 @@ function _calculateIntermediateViewBox(start, targetElement, svgContainer, progr
     let destCenterY = bboxY + bbox.height / 2;
 
     // svg container dimensions
-    let scaleFactor = window.innerWidth <= window.innerHeight ? 1 : 1 / (window.innerWidth / 1450);
+    let scaleFactor = window.innerWidth <= 1450 ? 1 : 1 / (window.innerWidth / 1450);
     let svgWidth = svgContainer.clientWidth * scaleFactor;
     let svgHeight = svgContainer.clientHeight * scaleFactor;
 
